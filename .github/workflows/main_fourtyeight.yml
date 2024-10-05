@@ -44,6 +44,12 @@ jobs:
         with:
           name: ASP-app
 
+      # Set up Node.js version 16 (for the deploy step)
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
