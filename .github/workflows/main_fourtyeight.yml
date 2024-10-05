@@ -10,7 +10,11 @@ on:
   workflow_dispatch:
 
 jobs:
+
   build:
+runs:
+    using: 'node16'
+    main: 'main.js'
     runs-on: windows-latest
 
     steps:
@@ -40,6 +44,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
 
     steps:
       - name: Download artifact from build job
